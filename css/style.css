@@ -1,0 +1,173 @@
+/* Importing Poppins font and setting up the body background */
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+/* Keyframe animation for logo */
+@keyframes logoGrow {
+    0% {
+        width: 25px;
+        opacity: 0;
+    }
+    100% {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+#logo {
+    animation: logoGrow 5s forwards;
+    align-content: center;
+}
+
+/* Disabling animation for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+
+/* Flex Layout for Header and Navigation Links */
+header {
+    display: flex;
+    flex-direction: column; /* Stacks logo and links vertically */
+    align-items: center; /* Centers the logo and links horizontally */
+    gap: 10px; /* Adds spacing between logo and links */
+    padding: 10px;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#logo {
+    margin: 0; /* Removes any extra margin around the logo */
+}
+
+.nav_links {
+    display: flex;
+    gap: 15px; /* Spacing between individual links */
+    justify-content: center;
+}
+
+/* Style links to maintain the same color after being visited */
+
+
+/* Styling the Header within .card */
+.card > header {
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Card and Pricing Layout for Default Mobile View */
+.card {
+    flex-basis: 100%;
+    max-width: 450px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    padding: 20px;
+}
+
+.pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Gallery Image Styling */
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Allows images to wrap onto new lines */
+    gap: 20px; /* Adds space between items */
+    justify-content: flex-start; /* Aligns most rows to the start */
+    align-content: flex-start; /* Aligns rows to the top */
+}
+
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+    box-sizing: border-box;
+    flex: 0 0 300px; /* Fixes each image to exactly 300px */
+}
+
+/* Center-align images in the last row without gaps */
+.gallery:after {
+    content: "";
+    flex: auto;
+
+}
+
+
+
+
+
+
+/* Responsive Adjustments for Screens Wider than 900px */
+@media (min-width: 900px) {
+    .pricing {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    .card {
+        flex-basis: 275px;
+    }
+}
+
+/* Header Navigation Flex Setup for Screens Wider than 1200px */
+@media (min-width: 1200px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav_links {
+        display: flex;
+        gap: 20px;
+    }
+}
+
+/* Sticky Header on Scroll */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 10;
+}
+
+/* Print View Styling Adjustments */
+@media print {
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: none;
+    }
+    
+    .gallery {
+        display: none;
+    }
+
+    .pricing {
+        align-items: flex-end;
+    }
+
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+}
